@@ -1,16 +1,16 @@
 #include <stdio.h>
-#include <math.h>
+#include <math.h>       /* para atof() */
 #include <ctype.h>
 
-#define MAXOP 100
-#define NUMBER '0'
-#define MAXVAL 100
+#define MAXOP 100       /* máx tamaño de operando u operador */
+#define NUMBER '0'      /* señal de que un número se encontró */
+#define MAXVAL 100      /* máxima profundidad de la pila val */
 #define BUFSIZE 100
 
-int sp=0;
-double val[MAXVAL];
-char buf[BUFSIZE];  /* buffer para ungetch */
-int bufp=0;          /* siguiente posición libre de buf */
+int sp=0;               /* siguiente posición libre en la fila */
+double val[MAXVAL];     /* valores de la pila */
+char buf[BUFSIZE];      /* buffer para ungetch */
+int bufp=0;             /* siguiente posición libre de buf */
 
 int getch(void) /* obtiene un (posiblemente ya regresado) caracter */
 {
@@ -29,7 +29,7 @@ int getop(char s[])
 {
     int i, c;
 
-    while ((s[0]=c=getch())=='.' || c=='\t')
+    while ((s[0]=c=getch())==' ' || c=='\t')
         ;
     s[1]='\0';
     if (isdigit(c) && c!='.')
