@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <math.h>       /* para atof() */
+#include <stdlib.h>       /* para atof() */
 #include <ctype.h>
 
 #define MAXOP 100       /* máx tamaño de operando u operador */
