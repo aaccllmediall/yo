@@ -19,6 +19,11 @@ main()
     head->next=middle;
     middle->next=tail;
     tail->next=NULL;
+    imp(head)
+}
+
+void imp(struct node *head)
+{
     struct node *t;
     t=head;
     while (t!=NULL){
